@@ -10,6 +10,7 @@ _Để chạy chương trình, bảo đảm rằng bạn đã cài đặt Nodejs
 2. `npm start` </br>
 _Lưu ý lần chạy đầu tiên, cài đặt các thư viện:_ </br>
 1. `npm install`
+
 **2.Chạy build production phần webview và dùng cho mobile**
 1. `cd blockly-webview`
 2. `npm run build`
