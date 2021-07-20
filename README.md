@@ -18,7 +18,7 @@ _Lưu ý lần chạy đầu tiên, cài đặt các thư viện:_ </br>
 1. `cd blockly-mobile`
 2. `npx react-native run-android --variant=debug`</br>
 
-_Lưu ý 1: Bạn phải có bản production trong thư mục static_ <br/>
+_Lưu ý 1: Bạn phải có bản production của webview trong thư mục static_ <br/>
 _Lưu ý 2: lần chạy đầu tiên, cài đặt các thư viện:_ <br/>
 1. `npm install`
 
