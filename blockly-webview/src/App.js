@@ -31,13 +31,10 @@ const App = () => {
    */
   Blockly.setLocale(Vi)
   Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
-  // Blockly.JavaScript.STATEMENT_SUFFIX = 'waitForResponse();\n';
 
   Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(--LoopTrap == 0) { window.alert("Bạn đã đạt số vòng lặp tối đa (100 loops)"); \n throw "Infinite loop."};\n';
 
   function initApi(interpreter, globalObject) {
-    // Add an API function for highlighting blocks.
-    // Add an API function for the alert() block.
     Blockly.JavaScript.addReservedWords('alert');
     Blockly.JavaScript.addReservedWords('log');
     Blockly.JavaScript.addReservedWords('prompt');
@@ -62,7 +59,6 @@ const App = () => {
     interpreter.setProperty(globalObject, 'log',
       interpreter.createNativeFunction(wrapper));
 
-    // Add an API function for the prompt() block.
     wrapper = function (text) {
       return prompt(text);
     };
@@ -163,8 +159,6 @@ const App = () => {
   }
 
 
-
-
   /**
    * Inject custion features when component loaded
    */
@@ -182,52 +176,10 @@ const App = () => {
         window.ReactNativeWebView.postMessage("xml injected!")
       } catch (e) { alert("Chưa kết nối với thiết bị webview") }
       var CryptoJS = require("crypto-js");
-      // Decrypt
       var bytes = CryptoJS.AES.decrypt(localStorage.getItem('initxml'), 'thanhdanh');
       var originalText = bytes.toString(CryptoJS.enc.Utf8);
-      // console.log({ INJECT: originalText })
-      //console.log(originalText); // 'my message'
       setXmlInject(originalText)
     }
-
-    // var myCode = 'alert(url);';
-    // var initFunc = function (interpreter, globalObject) {
-    //   var wrapper = function alert(text) {
-    //     return window.alert(text);
-    //   };
-    //   interpreter.setProperty(globalObject, 'alert',
-    //     interpreter.createNativeFunction(wrapper));
-    // };
-    // var myInterpreter = new Interpreter(myCode, initFunc);
-    // window.setTimeout(() => {
-    //   setToolboxConfiguration((prevConfig) => ({
-    //     ...prevConfig,
-    //     contents: [
-    //       ...prevConfig.contents,
-    //       {
-    //         kind: "category",
-    //         name: "Them vao sau 2 giay",
-    //         contents: [
-    //           { kind: "block", type: "text" },
-
-    //         ],
-    //         colour: 100
-    //       },
-    //     ],
-    //   }));
-    // }, 2000);
-
-    // window.setTimeout(() => {
-    //   setToolboxConfiguration((prevConfig) => ({
-    //     ...prevConfig,
-    //     contents: [
-    //       ...prevConfig.contents.slice(0, prevConfig.contents.length - 1),
-    //     ],
-    //   }));
-    // }, 4000);
-
-
-
 
     //CUSTOM GIU THANG
     const thang = {
@@ -402,16 +354,6 @@ const App = () => {
   };
 
 
-
-
-
-
-
-
-
-
-
-
   const onWorkspaceChange = React.useCallback((workspace) => {
 
 
@@ -442,10 +384,6 @@ const App = () => {
   }, []);
 
   const handleView = (e) => {
-    // try { window.ReactNativeWebView.postMessage(code) }
-    // catch (error) {
-    //   alert(error)
-    // }
     let element = document.getElementsByClassName("blocklyToolboxDiv")[0];
     if (element.style.opacity === '0') {
 
@@ -481,22 +419,6 @@ const App = () => {
     var myInterpreter = new Interpreter(code, initApi);
     function nextStep() {
       if (myInterpreter.step()) {
-
-        // await (async function () {
-        //   return new Promise((resolve, reject) => {
-        //     window.setInterval(() => {
-        //       if (uartFeedback)
-        //         resolve(true)
-        //     }, 10)
-        //     window.setTimeout(() => { resolve(false) }, 5000)
-        //   }).then((result) => {
-        //     if (result)
-        //       nextStep();
-        //     else {
-        //       console.log("TIME OUT")
-        //     }
-        //   })
-        // })()
 
         if (document.getElementById('isRunNow').innerText) window.setTimeout(nextStep, 0);
       }
@@ -539,12 +461,6 @@ const App = () => {
       {xmlInject && <BlocklyWorkspace
         toolboxConfiguration={toolboxConfiguration}
         workspaceConfiguration={{
-          // grid: {
-          //   spacing: 20,
-          //   length: 3,
-          //   colour: "#ccc",
-          //   snap: true,
-          // },
           zoom: {
             controls: true,
             startScale: 1.0,
