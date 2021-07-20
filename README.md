@@ -8,8 +8,11 @@ _Để chạy chương trình, bảo đảm rằng bạn đã cài đặt Nodejs
 **1.Chạy riêng phần webview chế độ debug**
 1. `cd blockly-webview`
 2. `npm start` </br>
+
+
 _Lưu ý lần chạy đầu tiên, cài đặt các thư viện:_ </br>
 1. `npm install`
+
 **2.Chạy build production phần webview và dùng cho mobile**
 1. `cd blockly-webview`
 2. `npm run build`
@@ -18,7 +21,7 @@ _Lưu ý lần chạy đầu tiên, cài đặt các thư viện:_ </br>
 1. `cd blockly-mobile`
 2. `npx react-native run-android --variant=debug`</br>
 
-_Lưu ý 1: Bạn phải có bản production trong thư mục static_ <br/>
+_Lưu ý 1: Bạn phải có bản production của webview trong thư mục static_ <br/>
 _Lưu ý 2: lần chạy đầu tiên, cài đặt các thư viện:_ <br/>
 1. `npm install`
 
